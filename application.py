@@ -1,13 +1,6 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return "{}".format(Fibonacci(100))
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
-
 def Fibonacci(n): 
     if n<0: 
         print("Incorrect input") 
@@ -19,4 +12,12 @@ def Fibonacci(n):
         return 1
     else: 
         return Fibonacci(n-1)+Fibonacci(n-2)
+
+@app.route('/')
+def index():
+    return str(Fibonacci(100))
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
         
